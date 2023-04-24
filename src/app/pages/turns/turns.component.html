@@ -1,0 +1,57 @@
+
+<div class="card">
+   
+    <div class="card-body">
+      <h5 class="card-title">Generar Turnos</h5>
+      <form action="">
+        
+        
+        <div class="form-group">
+            <label for="" style="text-align: left;">* Fecha Inicio:</label>
+            <input  [(ngModel)]="fecha_inicio" name="fecha_inicio"  type="date" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="" style="text-align: left;">* Fecha Fin:</label>
+            <input  [(ngModel)]="fecha_fin" name="fecha_fin"  type="date" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="" style="text-align: left;">* Servicio:</label>
+            <select [(ngModel)]="servicio" name="servicio" class="form-control">
+                <option *ngFor="let servicio of servicios" [value]="servicio.id_servicio"   > {{servicio.nom_servicio}} </option>
+            </select>
+        </div>
+        <button (click)="saveTurns()" class="btn btn-success" style="width: 100%;" >Generar Turnos</button>
+      </form>
+    </div>
+</div>
+
+
+<div class="card">
+   
+    <div class="card-body">
+      <h5 class="card-title">Listado De Turnos</h5>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Fecha</th>
+            <th scope="col">Hora Inicio</th>
+            <th scope="col">Hora Fin</th>
+            <th scope="col">Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let turn of turns ">
+            <td>{{turn.fecha_turno  | date: 'yyyy-MMM-dd' }}</td>
+            <td>{{turn.hora_inicio  | date: 'H:mm'}}</td>
+            <td>{{turn.hora_fin     | date: 'H:mm'}}</td>
+            <td>{{turn.estado}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+        
+
+    </div>
+  </div>
+
+
